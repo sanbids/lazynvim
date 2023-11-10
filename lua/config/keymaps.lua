@@ -1,3 +1,30 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local map = vim.keymap.set
+local deleMap = vim.keymap.del
+
+deleMap("n", "<leader>`")
+deleMap("n", "<leader>w-")
+deleMap("n", "<leader>w|")
+deleMap("n", "<leader>-")
+deleMap("n", "<leader>|")
+deleMap("n", "<leader><tab>l")
+deleMap("n", "<leader><tab>f")
+deleMap("n", "<leader><tab><tab>")
+deleMap("n", "<leader><tab>]")
+deleMap("n", "<leader><tab>d")
+deleMap("n", "<leader><tab>[")
+deleMap("n", "<leader>K")
+deleMap("n", "<leader>l")
+deleMap("n", "<leader>cd")
+deleMap("n", "<leader>cf")
+deleMap("n", "<leader>qq")
+deleMap("n", "<leader>ww")
+deleMap("n", "<leader>wd")
+
+map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+map({ "n", "v" }, "<leader>lf", function()
+  Util.format({ force = true })
+end, { desc = "Format" })
+
+map("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Close Buffer" })
+map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all" })
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
